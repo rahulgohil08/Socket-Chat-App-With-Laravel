@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ChatController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::prefix('chat')->group(function () {
+
+    Route::get('fetch', [ChatController::class, 'fetch']);
+
+    Route::post('store', [ChatController::class, 'store']);
+
+});
+
+
