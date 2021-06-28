@@ -5,7 +5,7 @@ const ip = require('ip');
 
 const port = process.env.PORT || 3000
 
-const hostUrl = "127.0.0.1"
+const hostUrl = "192.168.0.140"
 const hostPort = "8000"
 
 const app = express();
@@ -14,13 +14,13 @@ const server = require('http').createServer(app);
 
 
 const io = require('socket.io')(server, {
-    cors: {origin: "*"}
+    cors: { origin: "*" }
 });
 
 
 /*---------------- Server Listening ---------------*/
 
-server.listen(port, () => {
+server.listen(port, hostUrl, () => {
     console.log('Server is running');
 });
 
@@ -81,12 +81,11 @@ function sendChat(data) {
     let url = "http://" + hostUrl + ":" + hostPort + "/api"
 
     axios.post(url + '/chat/store', data)
-        .then(function (response) {
+        .then(function(response) {
             console.log(response.data);
         })
-        .catch(function (error) {
+        .catch(function(error) {
             console.log(error);
         });
 
 }
-

@@ -63,13 +63,13 @@
 
     <script>
 
-        const server = '127.0.0.1';
+        const server = '192.168.0.140';
         const port = '3000';
 
         const socket = io(server + ":" + port);
 
 
-        const hostUrl = "127.0.0.1"
+        const hostUrl = server
         const hostPort = "8000"
 
         let url = "http://" + hostUrl + ":" + hostPort + "/api"
@@ -81,6 +81,10 @@
             mounted() {
 
                 this.fetchOldMessages()
+
+      
+
+
 
                 socket.on('connect', function () {
                     console.log('Socket Connected Client Side')
@@ -95,8 +99,12 @@
 
                 socket.on('chat-message', (message) => {
                     console.log('Message Received Client Side ::: ', message)
+ 
+                    if (message.sender_id == {{auth()->id()}} || message.receiver_id == {{auth()->id()}} ) {
 
-                    this.messages.push(message);
+                        this.messages.push(message);
+
+                    }
                 });
             },
 
