@@ -100,6 +100,8 @@
                 socket.on('chat-message', (message) => {
                     console.log('Message Received Client Side ::: ', message)
  
+                    this.messages.push(message);
+
                     if (message.sender_id == {{auth()->id()}} || message.receiver_id == {{auth()->id()}} ) {
 
                         this.messages.push(message);

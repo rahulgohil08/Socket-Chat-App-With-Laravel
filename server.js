@@ -1,6 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const ip = require('ip');
+const { json } = require('express');
 
 
 const port = process.env.PORT || 3000
@@ -53,12 +54,15 @@ function handleSocket(socket) {
         //     message: message,
         // }
 
-        console.log("Received From Client ::: ", message)
+        message.created_at = new Date().toISOString();
+
+        console.log("Message to be Stored ::: " + message);
+
+        // io.emit('chat-message', message);
 
         sendChat(message)
 
 
-        io.emit('chat-message', message);
         // socket.broadcast.emit('chat-message', message);
     });
 
@@ -80,12 +84,22 @@ function sendChat(data) {
 
     let url = "http://" + hostUrl + ":" + hostPort + "/api"
 
-    axios.post(url + '/chat/store', data)
+    let axiosConfig = {
+        headers: {
+            'Content-Type': 'application/json;charset=UTF-8',
+            "Access-Control-Allow-Origin": "*",
+        }
+    };
+
+    axios.post(url + '/chat/store', data, axiosConfig)
         .then(function(response) {
-            console.log(response.data);
+            console.log("Axios from server :: ", response.data);
+
+            io.emit('chat-message', response.data);
+
         })
         .catch(function(error) {
-            console.log(error);
+            console.log(error.response.data);
         });
 
 }
