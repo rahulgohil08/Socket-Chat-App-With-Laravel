@@ -82,7 +82,7 @@
 
                 this.fetchOldMessages()
 
-      
+
 
 
 
@@ -99,10 +99,9 @@
 
                 socket.on('chat-message', (message) => {
                     console.log('Message Received Client Side ::: ', message)
- 
-                    this.messages.push(message);
 
-                    if (message.sender_id == {{auth()->id()}} || message.receiver_id == {{auth()->id()}} ) {
+
+                    if ((message.sender_id == {{auth()->id()}} && message.receiver_id == {{$receiver->id}}) || (message.receiver_id == {{auth()->id()}} && message.sender_id == {{$receiver->id}}) ) {
 
                         this.messages.push(message);
 
