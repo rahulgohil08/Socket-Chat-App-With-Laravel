@@ -6,8 +6,8 @@ const { json } = require('express');
 
 const port = process.env.PORT || 3000
 
-const hostUrl = "192.168.0.140"
-const hostPort = "8000"
+const hostUrl = "https://laravel-socket-app.herokuapp.com"
+// const hostPort = "8000"
 
 const app = express();
 
@@ -82,7 +82,8 @@ function handleSocket(socket) {
 
 function sendChat(data) {
 
-    let url = "http://" + hostUrl + ":" + hostPort + "/api"
+    // let url = "http://" + hostUrl + ":" + hostPort + "/api"
+    let url = hostUrl + "/api"
 
     let axiosConfig = {
         headers: {
