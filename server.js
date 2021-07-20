@@ -4,7 +4,8 @@ const axios = require('axios');
 
 const port = process.env.PORT || 5000
 
-const hostUrl = "https://laravel-socket-node-server.herokuapp.com"
+// const hostUrl = "https://laravel-socket-node-server.herokuapp.com"
+const hostUrl = "https://laravel-socket-app.herokuapp.com/"
 // const hostUrl = "http://192.168.0.140"
 // const hostPort = "8000"
 
