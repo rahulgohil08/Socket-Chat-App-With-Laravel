@@ -40,7 +40,6 @@
 
                     <form class="mt-4" method="post" action="{{route('user.login.submit')}}">
 
-
                         @csrf
 
                         <div class="form-group">
