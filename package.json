@@ -1,7 +1,7 @@
 {
     "name": "laravel-socket-app",
     "version": "0.1.0",
-    "main": "web.js",
+    "main": "server.js",
     "engines": {
         "node": "14.x"
     },

@@ -63,19 +63,18 @@
 
     <script>
 
-        const server = '192.168.0.140';
-        // const server = "https://laravel-socket-app.herokuapp.com";
-        const port = '3000';
+        // const server = '192.168.0.14
+        const server = "https://laravel-socket-node-server.herokuapp.com";
 
-        const socket = io(server + ":" + port);
-        // const socket = io(server);
+        // const socket = io(server + ":" + port);
+        const socket = io(server);
 
 
-        const hostUrl = server
-        const hostPort = "8000"
-
-        let url = "http://" + hostUrl + ":" + hostPort + "/api"
-        // let url = server
+        // const hostUrl = server
+        // const hostPort = "8000"
+        //
+        // let url = "http://" + hostUrl + ":" + hostPort + "/api"
+        let url = server+ "/api"
 
 
         const app = new Vue({
