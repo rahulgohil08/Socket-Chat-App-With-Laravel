@@ -1,14 +1,11 @@
 const express = require('express');
 const axios = require('axios');
-const ip = require('ip');
-const {json} = require('express');
 
 
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 3000
 
-// const hostUrl = "https://laravel-socket-app.herokuapp.com"
 const hostUrl = "http://192.168.0.140"
-// const hostPort = "8000"
+const hostPort = "8000"
 
 const app = express();
 
@@ -22,7 +19,7 @@ const io = require('socket.io')(server, {
 
 /*---------------- Server Listening ---------------*/
 
-server.listen(port, hostUrl, () => {
+server.listen(port, () => {
     console.log('Server is running');
 });
 
@@ -83,8 +80,8 @@ function handleSocket(socket) {
 
 function sendChat(data) {
 
-    // let url = "http://" + hostUrl + ":" + hostPort + "/api"
-    let url = hostUrl + "/api"
+    let url = hostUrl + ":" + hostPort + "/api"
+    // let url = hostUrl
 
     let axiosConfig = {
         headers: {

@@ -1,9 +1,9 @@
 {
     "name": "laravel-socket-app",
     "version": "0.1.0",
+    "main": "web.js",
     "engines": {
-        "node": "14.x",
-        "npm": "7.x"
+        "node": "14.x"
     },
     "private": true,
     "scripts": {
@@ -24,6 +24,7 @@
         "axios": "^0.21.1",
         "express": "^4.17.1",
         "ip": "^1.1.5",
+        "nodemon": "^2.0.12",
         "save": "^2.4.0",
         "socket.io": "^4.1.2"
     }

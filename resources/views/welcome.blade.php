@@ -63,19 +63,19 @@
 
     <script>
 
-        // const server = '192.168.0.140';
-        const server = "https://laravel-socket-app.herokuapp.com";
-        // const port = '3000';
+        const server = '192.168.0.140';
+        // const server = "https://laravel-socket-app.herokuapp.com";
+        const port = '3000';
 
-        // const socket = io(server + ":" + port);
-        const socket = io(server);
+        const socket = io(server + ":" + port);
+        // const socket = io(server);
 
 
-        // const hostUrl = server
-        // const hostPort = "8000"
+        const hostUrl = server
+        const hostPort = "8000"
 
-        // let url = "http://" + hostUrl + ":" + hostPort + "/api"
-        let url = server
+        let url = "http://" + hostUrl + ":" + hostPort + "/api"
+        // let url = server
 
 
         const app = new Vue({
@@ -84,9 +84,6 @@
             mounted() {
 
                 this.fetchOldMessages()
-
-
-
 
 
                 socket.on('connect', function () {
@@ -104,7 +101,7 @@
                     console.log('Message Received Client Side ::: ', message)
 
 
-                    if ((message.sender_id == {{auth()->id()}} && message.receiver_id == {{$receiver->id}}) || (message.receiver_id == {{auth()->id()}} && message.sender_id == {{$receiver->id}}) ) {
+                    if ((message.sender_id == {{auth()->id()}} && message.receiver_id == {{$receiver->id}}) || (message.receiver_id == {{auth()->id()}} && message.sender_id == {{$receiver->id}})) {
 
                         this.messages.push(message);
 
@@ -128,6 +125,9 @@
                         receiver_id: this.receiver_id,
                         message: this.msg,
                     }
+
+
+                    console.log("Message From Client Side", data)
 
                     socket.emit('chat-message', data);
 
