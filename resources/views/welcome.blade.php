@@ -64,8 +64,8 @@
     <script>
 
         // const server = '192.168.0.14
-        // const server = "https://laravel-socket-node-server.herokuapp.com";
-        const server = "http://laravel-socket-app.herokuapp.com";
+        const server = "https://laravel-socket-node-server.herokuapp.com";
+        // const server = "http://laravel-socket-app.herokuapp.com";
 
         // const socket = io(server + ":" + port);
         const socket = io(server);
