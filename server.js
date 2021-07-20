@@ -16,6 +16,10 @@ const io = require('socket.io')(server, {
     cors: {origin: "*"}
 });
 
+app.get('/', function (req, res) {
+    res.send('Hello From Express : ', port);
+})
+
 
 /*---------------- Server Listening ---------------*/
 
