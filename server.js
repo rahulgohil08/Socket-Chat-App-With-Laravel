@@ -1,10 +1,10 @@
 const express = require('express');
 const axios = require('axios');
 const ip = require('ip');
-const { json } = require('express');
+const {json} = require('express');
 
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 5000
 
 const hostUrl = "https://laravel-socket-app.herokuapp.com"
 // const hostPort = "8000"
@@ -15,7 +15,7 @@ const server = require('http').createServer(app);
 
 
 const io = require('socket.io')(server, {
-    cors: { origin: "*" }
+    cors: {origin: "*"}
 });
 
 
@@ -93,13 +93,13 @@ function sendChat(data) {
     };
 
     axios.post(url + '/chat/store', data, axiosConfig)
-        .then(function(response) {
+        .then(function (response) {
             console.log("Axios from server :: ", response.data);
 
             io.emit('chat-message', response.data);
 
         })
-        .catch(function(error) {
+        .catch(function (error) {
             console.log(error.response.data);
         });
 
