@@ -8,7 +8,7 @@
     "private": true,
     "scripts": {
         "dev": "npm run development",
-        "heroku-postbuild": "npm run prod",
+        "postinstall": "npm run prod",
         "development": "mix",
         "watch": "mix watch",
         "watch-poll": "mix watch -- --watch-options-poll=1000",
