@@ -75,7 +75,7 @@
         // const hostPort = "8000"
         //
         // let url = "http://" + hostUrl + ":" + hostPort + "/api"
-        let url = server+ "/api"
+        let url = "http://laravel-socket-app.herokuapp.com/api"
 
 
         const app = new Vue({
