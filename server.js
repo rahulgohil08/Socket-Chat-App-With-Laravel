@@ -18,8 +18,8 @@ const io = require('socket.io')(server, {
 });
 
 app.get('/', function (req, res) {
-    res.send('Hello From Express : ', port);
-})
+    res.status(200).send('hello world from Express == PORT : ' + port)
+});
 
 
 /*---------------- Server Listening ---------------*/
